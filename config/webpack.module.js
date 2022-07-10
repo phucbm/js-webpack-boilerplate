@@ -7,10 +7,12 @@ module.exports = {
     mode: 'production',
     devtool: false,
     entry: paths.entry,
+    experiments: {
+        outputModule: true,
+    },
     output: {
-        filename: `${packageInfo.name}.min.js`,
-        library: `${packageInfo.codeName}`,
-        libraryTarget: 'umd',
+        filename: `${packageInfo.name}.module.js`,
+        libraryTarget: 'module',
         umdNamedDefine: true,
         // prevent error: `Uncaught ReferenceError: self is not define`
         globalObject: 'this',
