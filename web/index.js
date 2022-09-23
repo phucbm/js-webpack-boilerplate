@@ -1,6 +1,6 @@
 import './styles/index.scss'
+import '@/_index'
 import homeHtml from "./html/home.html";
-import {Greeting} from "@/_index";
 
 /**
  * Create HTML
@@ -8,4 +8,5 @@ import {Greeting} from "@/_index";
 const app = document.querySelector('#root')
 app.innerHTML = homeHtml;
 
-new Greeting('Phuc Bui');
+// init
+MyLib.init();
