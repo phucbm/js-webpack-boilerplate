@@ -13,7 +13,6 @@ const env = process.env;
 const bannerConfig = {
     banner: `
 /**!
- test ${env}
  * ${packageInfo.prettyName} v${packageInfo.version}
  * @author ${packageInfo.author.name}
  * @homepage ${packageInfo.homepage}

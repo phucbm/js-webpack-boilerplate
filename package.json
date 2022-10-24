@@ -23,11 +23,9 @@
   "scripts": {
     "dev": "webpack serve --config config/webpack.dev.js",
     "web": "cross-env ENTRY=web PORT=8081 webpack serve --config config/webpack.dev.js",
-    "build-umd": "cross-env NODE_ENV=build-umds webpack --config config/webpack.umd.js",
-    "build-module": "cross-env NODE_ENV=build-module webpack --config config/webpack.module.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.build.js",
-    "prod": "cross-env NODE_ENV=production npm run build-umd & npm run build-module",
-    "publish": "cross-env NODE_ENV=production webpack --config config/webpack.umd.js & npm publish"
+    "prod": "webpack --config config/webpack.prod.js && cross-env TARGET=module webpack --config config/webpack.prod.js",
+    "publish": "npm run prod & npm publish"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
