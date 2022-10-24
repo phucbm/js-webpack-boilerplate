@@ -104,7 +104,6 @@ const server = {
  * Export
  */
 module.exports = {
-    config,
     paths,
     packageInfo,
     bannerConfig,
