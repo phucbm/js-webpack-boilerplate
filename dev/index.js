@@ -1,4 +1,4 @@
-import '../public/style/fonts.css';
+//import '../public/style/fonts.css';
 import './styles/index.scss';
 import '@/_index';
 
