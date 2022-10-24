@@ -1,13 +1,19 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const {merge} = require('webpack-merge')
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const packageInfo = require('../package.json');
+const {paths, server} = require('./config')
 
-const {paths} = require('./config')
-const common = require('./webpack.common')
-
-module.exports = merge(common, {
+module.exports = merge(server, {
     mode: 'production',
     devtool: false,
+
+    // Where webpack looks to start building the bundle
+    entry: [paths.dev + '/index.js'],
+
     output: {
         path: paths.build,
         publicPath: '/',
@@ -38,6 +44,33 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].css',
+        }),
+        // Removes/cleans build folders and unused assets when rebuilding
+        new CleanWebpackPlugin(),
+
+        // Copies files from target to destination folder
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: paths.public,
+                    to: 'assets',
+                    globOptions: {
+                        ignore: ['*.DS_Store'],
+                    },
+                    noErrorOnMissing: true,
+                },
+            ],
+        }),
+
+        // Generates an HTML file from a template
+        // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
+        new HtmlWebpackPlugin({
+            inject: true,
+            hash: true,
+            title: packageInfo.prettyName,
+            favicon: paths.public + '/images/favicon.png',
+            template: paths.dev + '/index.html', // template file
+            filename: 'index.html', // output file
         }),
     ],
     optimization: {
