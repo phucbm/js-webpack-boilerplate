@@ -4,14 +4,22 @@ const {merge} = require('webpack-merge');
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const {paths, server, packageInfo} = require('./config');
+const {paths, server, packageInfo, env} = require('./config');
+const path = require("path");
+
+/**
+ * Sample variables: "cross-env ENTRY=web"
+ * ENTRY: folder to start building the bundle
+ */
+const entryFolder = env.ENTRY || 'web';
+const entryPath = path.resolve(__dirname, `../${entryFolder}`);
 
 module.exports = merge(server, {
     mode: 'production',
     devtool: false,
 
     // Where webpack looks to start building the bundle
-    entry: [paths.web + '/script.js'],
+    entry: [entryPath + '/script.js'],
 
     output: {
         path: paths.build,
@@ -68,7 +76,7 @@ module.exports = merge(server, {
             hash: true,
             title: packageInfo.prettyName,
             favicon: paths.public + '/images/favicon.png',
-            template: paths.dev + '/index.html', // template file
+            template: entryPath + '/index.html', // template file
             filename: 'index.html', // output file
         }),
     ],

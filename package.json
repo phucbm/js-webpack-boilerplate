@@ -23,7 +23,8 @@
   "scripts": {
     "dev": "webpack serve --config config/webpack.dev.js",
     "web": "cross-env ENTRY=web PORT=8081 webpack serve --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.build.js",
+    "build": "webpack --config config/webpack.build.js",
+    "build-dev": "cross-env ENTRY=dev webpack --config config/webpack.build.js",
     "prod": "webpack --config config/webpack.prod.js && cross-env TARGET=module webpack --config config/webpack.prod.js",
     "publish": "npm run prod & npm publish"
   },
