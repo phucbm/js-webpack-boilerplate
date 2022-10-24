@@ -1,15 +1,25 @@
 const {merge} = require('webpack-merge');
-const {paths, packageInfo, server} = require("./config");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const {paths, packageInfo, server, env} = require("./config");
+
+/**
+ * Sample variables: "cross-env ENTRY=dev PORT=8080"
+ * PORT: open a server in this port
+ * ENTRY: folder to start building the bundle
+ */
+const port = env.PORT || '8080';
+const entryFolder = env.ENTRY || 'dev';
+const entryPath = path.resolve(__dirname, `../${entryFolder}`);
 
 module.exports = merge(server, {
     // Set the mode to development or production
     mode: 'development',
 
     // Where webpack looks to start building the bundle
-    entry: [paths.dev + '/script.js'],
+    entry: [entryPath + '/script.js'],
 
     // Where webpack outputs the assets and bundles
     output: {
@@ -44,7 +54,7 @@ module.exports = merge(server, {
             hash: true,
             title: packageInfo.prettyName,
             favicon: paths.public + '/images/favicon.png',
-            template: paths.dev + '/index.html', // template file
+            template: entryPath + '/index.html', // template file
             filename: 'index.html', // output file
         }),
     ],
@@ -55,6 +65,6 @@ module.exports = merge(server, {
         open: true,
         compress: true,
         hot: true,
-        port: 8081,
+        port: port,
     },
 });

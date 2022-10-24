@@ -1,5 +1,11 @@
 const packageInfo = require('../package.json');
 
+/**
+ * Environment variables
+ * scripts: cross-env NODE_ENV=development
+ */
+const env = process.env;
+
 
 /**
  * Banner
@@ -7,6 +13,7 @@ const packageInfo = require('../package.json');
 const bannerConfig = {
     banner: `
 /**!
+ test ${env}
  * ${packageInfo.prettyName} v${packageInfo.version}
  * @author ${packageInfo.author.name}
  * @homepage ${packageInfo.homepage}
@@ -27,12 +34,6 @@ const paths = {
 
     // Production build files
     dist: path.resolve(__dirname, '../dist'),
-
-    // Web resources
-    web: path.resolve(__dirname, '../web'),
-
-    // Dev server
-    dev: path.resolve(__dirname, '../dev'),
 
     // Build web
     build: path.resolve(__dirname, '../build'),
@@ -107,5 +108,6 @@ module.exports = {
     paths,
     packageInfo,
     bannerConfig,
-    server
+    server,
+    env
 };
