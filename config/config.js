@@ -1,5 +1,6 @@
 const packageInfo = require('../package.json');
 
+
 /**
  * Banner
  */
@@ -103,6 +104,7 @@ const server = {
  * Export
  */
 module.exports = {
+    config,
     paths,
     packageInfo,
     bannerConfig,

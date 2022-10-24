@@ -9,12 +9,12 @@ module.exports = merge(server, {
     mode: 'development',
 
     // Where webpack looks to start building the bundle
-    entry: [paths.dev + '/script.js'],
+    entry: [paths.web + '/script.js'],
 
     // Where webpack outputs the assets and bundles
     output: {
         path: paths.dist,
-        filename: '[name].bundle.js',
+        filename: '[name].bundle-2.js',
         publicPath: '/',
     },
 
@@ -44,7 +44,7 @@ module.exports = merge(server, {
             hash: true,
             title: packageInfo.prettyName,
             favicon: paths.public + '/images/favicon.png',
-            template: paths.dev + '/index.html', // template file
+            template: paths.web + '/index.html', // template file
             filename: 'index.html', // output file
         }),
     ],
@@ -55,6 +55,6 @@ module.exports = merge(server, {
         open: true,
         compress: true,
         hot: true,
-        port: 8081,
+        port: 8080,
     },
 });

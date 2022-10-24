@@ -1,18 +1,17 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const {merge} = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const {merge} = require('webpack-merge');
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const packageInfo = require('../package.json');
-const {paths, server} = require('./config')
+const {paths, server, packageInfo} = require('./config');
 
 module.exports = merge(server, {
     mode: 'production',
     devtool: false,
 
     // Where webpack looks to start building the bundle
-    entry: [paths.dev + '/index.js'],
+    entry: [paths.web + '/script.js'],
 
     output: {
         path: paths.build,
