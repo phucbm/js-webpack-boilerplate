@@ -26,8 +26,8 @@ class Controller{
         this.instances = [];
     }
 
-    add(slider){
-        this.instances.push(slider);
+    add(instance){
+        this.instances.push(instance);
     }
 
     get(id){
