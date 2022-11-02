@@ -1,4 +1,4 @@
-# Webpack Library Boilerplate (Welib)
+#  Wellii - Webpack Library Boilerplate
 
 A boilerplate to develop JavaScript library with:
 
