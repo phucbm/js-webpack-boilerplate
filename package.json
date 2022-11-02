@@ -1,13 +1,13 @@
 {
-  "name": "my-lib",
-  "prettyName": "Webpack Library Boilerplate",
-  "codeName": "MyLib",
+  "name": "wellii",
+  "prettyName": "Wellii - Webpack Library Boilerplate",
+  "codeName": "Wellii",
   "version": "0.0.1",
   "description": "A boilerplate to build JavaScript library with ES6 module and UMD version.",
-  "homepage": "https://github.com/phucbm/webpack-library-boilerplate",
+  "homepage": "https://github.com/phucbm/wellii",
   "repository": {
     "type": "git",
-    "url": "git@github.com:phucbm/webpack-library-boilerplate"
+    "url": "git@github.com:phucbm/wellii"
   },
   "author": {
     "name": "phucbm",
@@ -19,7 +19,7 @@
     "es6"
   ],
   "license": "MIT",
-  "main": "./dist/my-lib.module.js",
+  "main": "./dist/wellii.module.js",
   "scripts": {
     "dev": "webpack serve --config config/webpack.dev.js",
     "web": "cross-env ENTRY=web PORT=8081 webpack serve --config config/webpack.dev.js",

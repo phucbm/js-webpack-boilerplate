@@ -22,4 +22,4 @@ document.querySelector('[data-description]').innerHTML = packageInfo.description
 /**
  * Lib usage
  */
-MyLib.init();
+Wellii.init();
