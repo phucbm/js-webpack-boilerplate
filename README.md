@@ -11,9 +11,9 @@ A boilerplate to develop JavaScript library with:
 ## Examples
 
 - Production
-  site: https://welib.netlify.app [![Netlify Status](https://api.netlify.com/api/v1/badges/3dcd8303-517a-4297-b027-98b9adcc7c5c/deploy-status)](https://app.netlify.com/sites/welib/deploys)
+  site: https://wellii.netlify.app [![Netlify Status](https://api.netlify.com/api/v1/badges/3dcd8303-517a-4297-b027-98b9adcc7c5c/deploy-status)](https://app.netlify.com/sites/wellii/deploys)
 - Dev
-  site: https://welib-dev.netlify.app [![Netlify Status](https://api.netlify.com/api/v1/badges/9d0e745c-a957-4c34-923f-d74852270174/deploy-status)](https://app.netlify.com/sites/welib-dev/deploys)
+  site: https://wellii-dev.netlify.app [![Netlify Status](https://api.netlify.com/api/v1/badges/9d0e745c-a957-4c34-923f-d74852270174/deploy-status)](https://app.netlify.com/sites/wellii-dev/deploys)
 - Distribution files: [/dist](https://github.com/phucbm/webpack-library-boilerplate/tree/main/dist)
 
 ## Todos
