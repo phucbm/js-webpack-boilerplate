@@ -1,5 +1,6 @@
 {
   "name": "wellii",
+  "outputFilename": "wellii",
   "prettyName": "Wellii - Webpack Library Boilerplate",
   "codeName": "Wellii",
   "version": "0.0.2",

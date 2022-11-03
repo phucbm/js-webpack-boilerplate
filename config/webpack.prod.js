@@ -10,14 +10,14 @@ const libraryTarget = env.TARGET || 'umd';
 let filename, experiments = {}, library = undefined;
 switch(libraryTarget){
     case "module":
-        filename = `${packageInfo.name}.module.js`;
+        filename = `${packageInfo.outputFilename}.module.js`;
         experiments = {
             outputModule: true,
         };
         break;
     default:
         //library = `${packageInfo.codeName}`;
-        filename = `${packageInfo.name}.min.js`;
+        filename = `${packageInfo.outputFilename}.min.js`;
 }
 
 module.exports = {
