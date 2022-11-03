@@ -18,8 +18,8 @@
     "javascript",
     "es6"
   ],
-  "license": "MIT",
   "main": "./dist/wellii.module.js",
+  "license": "MIT",
   "scripts": {
     "dev": "webpack serve --config config/webpack.dev.js",
     "web": "cross-env ENTRY=web PORT=8081 webpack serve --config config/webpack.dev.js",
