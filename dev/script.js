@@ -1,5 +1,6 @@
 // public styles
-import '../public/style/fonts.css';
+import '@viivue/atomic-css';
+import 'honcau';
 
 // private style
 import './style.scss';
