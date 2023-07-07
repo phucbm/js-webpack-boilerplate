@@ -27,47 +27,25 @@ A boilerplate to develop JavaScript library with:
 4. Edit production site in folder `web`
 
 ## Deployment
-
-### Dev server
-
-Run production server
-
 ```shell
+# Install
+npm i
+
+# Run production server
 npm run web
-```
 
-Run dev server
-
-```shell
+# Run dev server
 npm run dev
-```
 
-You can add more dev site by duplicate dev or web folder and update the npm scripts.
-
-### Generate production files
-
-Generate UMD and module version
-
-```shell
+# Generate UMD and module version
 npm run prod
-```
 
-Generate UMD and module version then publish NPM package
-
-```shell
+# Generate UMD and module version then publish NPM package
 npm run publish
-```
 
-### Build sites
-
-Build production site
-
-```shell
+# Build production site
 npm run build
-```
 
-Build dev site
-
-```shell
+# Build dev site
 npm run build-dev
 ```
