@@ -26,7 +26,10 @@
     "web": "cross-env ENTRY=web PORT=8081 webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.build.js",
     "build-dev": "cross-env ENTRY=dev webpack --config config/webpack.build.js",
-    "prod": "webpack --config config/webpack.prod.js && cross-env TARGET=module webpack --config config/webpack.prod.js",
+    "prod-umd": "cross-env TARGET=umd webpack --config config/webpack.prod.js",
+    "prod-umd-min": "cross-env TARGET=umd MIN=yes webpack --config config/webpack.prod.js",
+    "prod-module": "cross-env TARGET=module webpack --config config/webpack.prod.js",
+    "prod": "npm run prod-umd && npm run prod-umd-min && npm run prod-module",
     "publish": "npm run prod & npm publish"
   },
   "devDependencies": {
