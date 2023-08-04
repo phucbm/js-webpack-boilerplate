@@ -66,14 +66,25 @@ export function arraySortInteger(array, asc = true){
 
 
 /**
- * Set CSS
- * @param target
+ * Set CSS v2
+ * @param el
  * @param props
  */
-export function setCSS(target, props){
-    Object.assign(target.style, props);
+export function setCSS(el, props){
+    (el.length ? el : [el]).forEach(item => item && item.style ? Object.assign(item.style, props) : '');
 }
 
+export function hasClass(el, className){
+    el.classList.contains(className);
+}
+
+export function addClass(el, className){
+    (el.length ? el : [el]).forEach(item => item?.classList.add(className));
+}
+
+export function removeClass(el, className){
+    (el.length ? el : [el]).forEach(item => item?.classList.remove(className));
+}
 
 /**
  * Console log
