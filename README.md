@@ -1,12 +1,16 @@
-#  Wellii - Webpack Library Boilerplate
+#  JavaScript x Webpack (Library Boilerplate)
 
-A boilerplate to develop JavaScript library with:
+A starter pack to develop your JS library with:
+- ⚙️ ES6 module
+- ⚙️ Webpack with HRM ready
+- ⚙️ SCSS
+- ⚙️ Separated dev and public server
 
-- UMD version
-- NPM package
-- Multiple dev servers
+Output formats:
+- ✅ UMD file with minified and unminified versions.
+- ✅ Module file for publishing to `npm`.
 
-> CSS file will not be included in production build.
+> CSS file will not be included in the production build.
 
 ## Examples
 
