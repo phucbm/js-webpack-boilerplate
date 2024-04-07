@@ -4,7 +4,7 @@ import {uniqueId} from "./utils";
 /**
  * Private class
  */
-class Wellii{
+class MyInstance{
     constructor(options){
         this.id = uniqueId();
         this.options = {
@@ -38,27 +38,27 @@ class Controller{
 
 /**
  * Public library data
- * access via window.WelliiController
+ * access via window.MyInstanceController
  */
-window.WelliiController = new Controller();
+window.MyInstanceController = new Controller();
 
 
 /**
  * Public library object
- * access via window.Wellii
+ * access via window.MyInstance
  */
-window.Wellii = {
+window.MyInstance = {
     // init new instances
     init: (options = {}) => {
-        const selector = options.selector || '[data-wellii]';
+        const selector = options.selector;
 
         // init with selector
         document.querySelectorAll(selector).forEach(el => {
-            window.WelliiController.add(new Wellii({el, ...options}));
+            window.MyInstanceController.add(new MyInstance({el, ...options}));
         });
     },
     // Get instance object by ID
-    get: id => window.WelliiController.get(id)
+    get: id => window.MyInstanceController.get(id)
 };
 
-window.Wellii.init();
+window.MyInstance.init();
