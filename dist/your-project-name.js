@@ -1,9 +1,9 @@
 
 /**!
- * Wellii - Webpack Library Boilerplate v0.0.2
+ * MyInstance - Webpack Library Boilerplate v0.0.3
  * @author phucbm
- * @homepage https://github.com/phucbm/wellii
- * @license MIT 2023
+ * @homepage https://github.com/phucbm/js-webpack-boilerplate
+ * @license MIT 2024
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -106,14 +106,25 @@ function arraySortInteger(array, asc = true){
 
 
 /**
- * Set CSS
- * @param target
+ * Set CSS v2
+ * @param el
  * @param props
  */
-function setCSS(target, props){
-    Object.assign(target.style, props);
+function setCSS(el, props){
+    (el.length ? el : [el]).forEach(item => item && item.style ? Object.assign(item.style, props) : '');
 }
 
+function hasClass(el, className){
+    el.classList.contains(className);
+}
+
+function addClass(el, className){
+    (el.length ? el : [el]).forEach(item => item?.classList.add(className));
+}
+
+function removeClass(el, className){
+    (el.length ? el : [el]).forEach(item => item?.classList.remove(className));
+}
 
 /**
  * Console log
@@ -142,7 +153,7 @@ function uniqueId(prefix = ''){
 /**
  * Private class
  */
-class Wellii{
+class MyInstance{
     constructor(options){
         this.id = uniqueId();
         this.options = {
@@ -176,30 +187,30 @@ class Controller{
 
 /**
  * Public library data
- * access via window.WelliiController
+ * access via window.MyInstanceController
  */
-window.WelliiController = new Controller();
+window.MyInstanceController = new Controller();
 
 
 /**
  * Public library object
- * access via window.Wellii
+ * access via window.MyInstance
  */
-window.Wellii = {
+window.MyInstance = {
     // init new instances
     init: (options = {}) => {
-        const selector = options.selector || '[data-wellii]';
+        const selector = options.selector;
 
         // init with selector
         document.querySelectorAll(selector).forEach(el => {
-            window.WelliiController.add(new Wellii({el, ...options}));
+            window.MyInstanceController.add(new MyInstance({el, ...options}));
         });
     },
     // Get instance object by ID
-    get: id => window.WelliiController.get(id)
+    get: id => window.MyInstanceController.get(id)
 };
 
-window.Wellii.init();
+window.MyInstance.init();
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;
